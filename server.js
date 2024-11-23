@@ -61,7 +61,7 @@ bot.on('message', async (msg) => {
             const parts = text.split(' ')
             if(parts[1]===OWNER_PASSWORD){
                 BOT_OWNER_ID=chatId
-                bot.sendMessage(chatId, 'Now you are the owner')
+                bot.sendMessage(chatId, 'Now you have control over bot commands!')
             }
             else{
                 bot.sendMessage(chatId, 'Invalid Password !\nUsage: /password <YourPasswordWithoutSpace>')
@@ -78,7 +78,7 @@ bot.on('message', async (msg) => {
                 bot.sendMessage(chatId, `Hello there, use /help to see all commands !`)
                 return
             }
-            bot.sendMessage(chatId, 'Sorry, only the bot owner can use this command.');
+            bot.sendMessage(chatId, 'You do not have access to these commands !');
             return;
         }
 
@@ -119,7 +119,7 @@ bot.on('message', async (msg) => {
         // Validate time format (HH:mm)
         const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)$/;
         if (!timeRegex.test(time)) {
-            bot.sendMessage(chatId, 'Invalid time format. Use HH:mm (24-hour format).');
+            bot.sendMessage(chatId, 'Invalid time format. Use HH:MM (24-hour format).');
             return;
         }
 
@@ -185,10 +185,6 @@ bot.on('message', async (msg) => {
         } else {
             bot.sendMessage(chatId, `No job found with ID ${jobId}.`);
         }
-    }
-    else if (text === '/greetme') {
-        // console.log("we reached here")
-        bot.sendMessage(chatId, "hi i am aj bot created by one and only ajay !")
     }
     else if(text==='/help'){
         bot.sendMessage(chatId, `All Commands are - \n/schedule\n/cancelall\n/cancel\n/password\n/help`)
